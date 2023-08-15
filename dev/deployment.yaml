@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lamp-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lamp-app
+  template:
+    metadata:
+      labels:
+        app: lamp-app
+    spec:
+      containers:
+        - name: lamp-web
+          image: php:7.4-apache
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: lamp-config-volume
+              mountPath: /var/www/html
+        - name: lamp-db
+          image: mysql:5.7
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: lamp-config
+                  key: DB_PASSWORD
+          ports:
+            - containerPort: 3306
+          volumeMounts:
+            - name: lamp-config-volume
+              mountPath: /etc/mysql/conf.d
+      volumes:
+        - name: lamp-config-volume
+          configMap:
+            name: lamp-config
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lamp-config
+data:
+  DB_NAME: argocd
+  DB_PASSWORD: password
