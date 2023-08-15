@@ -8,8 +8,8 @@ spec:
     server: https://kubernetes.default.svc 
   source:
     repoURL: https://github.com/brutecoderMk/agoraCD.git
-    targetRevision: master
-    path: /agoraCD
+    targetRevision: HAED
+    path: agoraCD
   project: default
   syncPolicy:
     automated:
