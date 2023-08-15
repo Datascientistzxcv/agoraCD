@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   name: webserver
   labels:
-    app: apache
+    app: webserver   # Changed from "apache"
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: apache
+      app: webserver   # Changed from "apache"
   template:
     metadata:
       labels:
-        app: apache
+        app: webserver   # Changed from "apache"
     spec:
       containers:
       - name: php-apache

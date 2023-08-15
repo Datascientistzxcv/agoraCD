@@ -1,7 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: lamp-ingress
+  name: myapp-ingress
+  namespace: myapp   # Set to the target namespace of your application
 spec:
   rules:
     - host: phpapp.local
@@ -11,6 +12,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: lamp-service
+                name: webserver
                 port:
                   number: 80

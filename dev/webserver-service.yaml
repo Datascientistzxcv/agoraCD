@@ -1,22 +1,13 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
-  name: webserver
+  name: webserver-service
   labels:
     app: apache
 spec:
-  replicas: 3
   selector:
-    matchLabels:
-      app: apache
-  template:
-    metadata:
-      labels:
-        app: apache
-    spec:
-      containers:
-      - name: php-apache
-        image: learningk8s_website
-        imagePullPolicy: Never
-        ports:
-        - containerPort: 80
+    app: apache
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
