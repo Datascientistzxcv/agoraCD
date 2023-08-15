@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/sudosugandh/agoraCD.git
     targetRevision: HEAD
-    path: dev
+    path: lamp
   destination: 
     server: https://kubernetes.default.svc
     namespace: myapp
