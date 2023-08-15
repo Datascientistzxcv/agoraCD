@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: agoracd
+  name: argocd-app-manager
+rules:
+- apiGroups: [""]
+  resources: ["deployments", "services", "configmaps", "secrets"]
+  verbs: ["create", "update", "delete", "get", "list", "watch"]
