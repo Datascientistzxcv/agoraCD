@@ -7,7 +7,7 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/Primus-Learning/primuslearning-argocd-app.git
+    repoURL: https://github.com/sudosugandh/agoraCD.git
     targetRevision: HEAD
     path: dev
   destination: 
