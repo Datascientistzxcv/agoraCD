@@ -8,8 +8,8 @@ spec:
     server: https://kubernetes.default.svc 
   source:
     repoURL: https://github.com/brutecoderMk/agoraCD.git
-    targetRevision: HEAD
-    path: /home/flyingspark/Downloads/sugandh/agoraCD
+    targetRevision: master
+    path: /agoraCD
   project: default
   syncPolicy:
     automated:
