@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: php-mysql-app
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/your-repo.git
+    path: path/to/manifests
+    targetRevision: HEAD
+  destination:
+    namespace: phpns
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
