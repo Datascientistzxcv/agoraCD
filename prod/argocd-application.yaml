@@ -5,9 +5,10 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-repo.git
+    repoURL: https://github.com/brutecoderMk/agoraCD.git
     path: path/to/manifests
     targetRevision: HEAD
+    path: app
   destination:
     namespace: phpns
   syncPolicy:
