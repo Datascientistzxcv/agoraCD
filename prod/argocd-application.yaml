@@ -8,9 +8,9 @@ spec:
     repoURL: https://github.com/brutecoderMk/agoraCD.git
     path: path/to/manifests
     targetRevision: HEAD
-    path: app
+    path: prod
   destination:
-    namespace: phpns
+    namespace: fpm
   syncPolicy:
     automated:
       prune: true
