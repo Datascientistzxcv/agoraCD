@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: db-init-job
+  namespace: phpns
+spec:
+  template:
+    spec:
+      containers:
+        - name: db-init-container
+          image: mysql:5.7
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: password
+          command: ["mysql"]
+          args: ["-h", "mysql-db-service", "-u", "root", "-e", "CREATE DATABASE IF NOT EXISTS wordpress_db; GRANT ALL PRIVILEGES ON wordpress_db.* TO 'mywordpressuser'@'localhost'; FLUSH PRIVILEGES;"]
+      restartPolicy: Never
