@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql-db
-  namespace: default
+  namespace: phpns
 spec:
   replicas: 1
   selector:
@@ -29,7 +29,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql-db-service
-  namespace: default
+  namespace: phpns
 spec:
   selector:
     app: mysql-db
