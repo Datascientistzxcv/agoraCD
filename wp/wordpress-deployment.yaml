@@ -18,7 +18,7 @@ spec:
           image: wordpress:latest
           env:
             - name: WORDPRESS_DB_HOST
-              value: mysql-db-service.default.svc.cluster.local
+              value: mysql-db-service
             - name: WORDPRESS_DB_USER
               value: root
             - name: WORDPRESS_DB_PASSWORD
