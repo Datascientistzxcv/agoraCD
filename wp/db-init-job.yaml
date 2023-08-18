@@ -16,5 +16,12 @@ spec:
                   name: mysql-secret
                   key: password
           command: ["mysql"]
-          args: ["-h", "mysql-db-service", "-u", "root", "-p${MYSQL_ROOT_PASSWORD}", "-e", "CREATE DATABASE IF NOT EXISTS wordpress_db; GRANT ALL PRIVILEGES ON wordpress_db.* TO 'mywordpressuser'@'localhost'; FLUSH PRIVILEGES;"]
+          args:
+            - -h
+            - mysql-db-service
+            - -u
+            - root
+            - -p$(MYSQL_ROOT_PASSWORD)
+            - -e
+            - CREATE DATABASE IF NOT EXISTS wordpress_db; GRANT ALL PRIVILEGES ON wordpress_db.* TO 'mywordpressuser'@'localhost'; FLUSH PRIVILEGES;
       restartPolicy: Never
